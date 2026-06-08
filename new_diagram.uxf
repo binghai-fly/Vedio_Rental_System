@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>160</x>
+      <y>10</y>
+      <w>500</w>
+      <h>370</h>
+    </coordinates>
+    <panel_attributes>last::Demo
+--
+~manager = new Manager(): Manager
+-userMap = new HashMap&lt;String, Customer&gt;(): HashMap&lt;String, Customer&gt;
+-customer: Customer
+~resArea = new TextArea(): TextArea
+~primaryStage: Stage
+~mainScene: Scene
+--
++initData(): void
++start(Stage primaryStage): void
++MainScene(): void
++ManagerUIScene(): Scene
++CustomerUIScene(): Scene
++ManagerScene(): Scene
++CustomerScene(): Scene
++ReturnScene(): Scene
++BorrowScene(): Scene
++AddScene(): Scene
++addCDScene(): Scene
++addDVDScene(): Scene
++DeleteScene(): Scene
++SearchScene(): Scene
++main(String[] args): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>740</x>
+      <y>10</y>
+      <w>580</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>last::Customer
+--
+-numsOfBorrow: int
+-name: String
+-BorrowRecord = new HashMap&lt;String, Date&gt;(): HashMap&lt;String, Date&gt;
+-ReturnRocord = new HashMap&lt;String, Date&gt;(): HashMap&lt;String, Date&gt;
+--
++Customer(String name): ctor
++borrowByIndex(int n): String
++borrowByTitle(String title): String
++ReturnByTitle(String title): String
++ReturnByIndex(int n): String
++SearchByTitle(String title): String
++SearchSelf(): String
++getName(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>810</x>
+      <y>280</y>
+      <w>410</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>last::Item
+--
+-title: String
+-playingTime: String
+-gotIt: boolean
+-comment: String
+--
++Item(String title, String playingTime, String comment): ctor
++toString(): String
++print(): String
++isGot(): boolean
++setGot(boolean gotIt): void
++getTitle(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>100</x>
+      <y>400</y>
+      <w>330</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>last::Manager
+--
+-password = "binghai": String
++list = new ArrayList&lt;Item&gt;(): ArrayList&lt;Item&gt;
+--
++add(Item item): void
++deleteByIndex(int n): String
++deleteByTitle(String title): String
++getPassword(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>880</x>
+      <y>570</y>
+      <w>480</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>last::DVD
+--
+-director: String
+--
++DVD(String title, String playingTime, String director, String comment): ctor
++toString(): String
++print(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>390</x>
+      <y>550</y>
+      <w>470</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>last::CD
+--
+-singer: String
+--
++CD(String title, String playingTime, String singer, String comment): ctor
++toString(): String
++print(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>710</x>
+      <y>470</y>
+      <w>140</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1030</x>
+      <y>470</y>
+      <w>110</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+</diagram>
