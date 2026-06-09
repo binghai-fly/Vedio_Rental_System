@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
-public class Customer {
+public class Customer implements Seach{
 	private int numsOfBorrow;
 	private String name;
 	
-	private HashMap<String, Date> BorrowRecord=new HashMap<String, Date>();
-	private HashMap<String ,Date> ReturnRocord=new HashMap<String, Date>();
+	private HashMap<Date, String> BorrowRecord=new HashMap<Date, String>();
+	private HashMap<Date ,String> ReturnRocord=new HashMap<Date, String>();
 	public Customer(String name) {
 		this.name=name;
 	}
@@ -21,7 +21,7 @@ public class Customer {
 			else {
 				Manager.list.get(n).setGot(true);
 				this.numsOfBorrow++;
-				BorrowRecord.put(Manager.list.get(n).getTitle(), new Date());
+				BorrowRecord.put(new Date(), Manager.list.get(n).getTitle());
 				return "Got it: "+Manager.list.get(n).getTitle();
 			}
 		}
@@ -38,7 +38,7 @@ public class Customer {
 				else {
 					item.setGot(true);
 					this.numsOfBorrow++;
-					BorrowRecord.put(title, new Date());
+					BorrowRecord.put(new Date(), title);
 					return "Got it: "+title;
 				}
 			}
@@ -49,9 +49,10 @@ public class Customer {
 	public String ReturnByTitle(String title) {
 		for (Item item:Manager.list) {
 			if (item.getTitle().equals(title)) {
-				if (BorrowRecord.containsKey(title)&&item.isGot()) {	
+				if (BorrowRecord.containsValue(title)&&item.isGot()) {	
 					item.setGot(false);
-					ReturnRocord.put(title, new Date());
+					this.numsOfBorrow--;
+					ReturnRocord.put(new Date(), title);
 					return "Returned it:"+ item.getTitle();
 				}
 
@@ -66,9 +67,10 @@ public class Customer {
 	
 	public String ReturnByIndex(int n) {
 		if (n<Manager.list.size()) {
-			if (BorrowRecord.containsKey(Manager.list.get(n).getTitle())&&Manager.list.get(n).isGot()) {
+			if (BorrowRecord.containsValue(Manager.list.get(n).getTitle())&&Manager.list.get(n).isGot()) {
 				Manager.list.get(n).setGot(false);
-				ReturnRocord.put(Manager.list.get(n).getTitle(), new Date());
+				this.numsOfBorrow--;
+				ReturnRocord.put(new Date(), Manager.list.get(n).getTitle());
 				return "Returned it:"+ Manager.list.get(n).getTitle();
 			
 			}
@@ -81,7 +83,7 @@ public class Customer {
 		
 	}
 	
-	public String SearchByTitle(String title) {
+	public String SearchSth(String title) {
 		String s="";
 		for (int i=0;i<Manager.list.size();i++) {
 			if (Manager.list.get(i).getTitle().equals(title)) {
@@ -102,7 +104,7 @@ public class Customer {
 		}
 		else {
 			s+="\t\tRecord of Borrow\n\n";
-			for (String key:BorrowRecord.keySet()) {
+			for (Date key:BorrowRecord.keySet()) {
 				s+=key+"   "+ BorrowRecord.get(key)+"\n";
 			}
 		}
@@ -112,7 +114,7 @@ public class Customer {
 		}
 		else {
 			s+="\n\n\t\tRecord of Return \n\n";
-			for (String key:ReturnRocord.keySet()) {
+			for (Date key:ReturnRocord.keySet()) {
 				s+=key+"   "+ReturnRocord.get(key)+"\n";
 			}
 		}

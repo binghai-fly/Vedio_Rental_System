@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1.0">
-  <zoom_level>10</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>160</x>
-      <y>10</y>
-      <w>500</w>
-      <h>370</h>
+      <x>9</x>
+      <y>459</y>
+      <w>441</w>
+      <h>378</h>
     </coordinates>
     <panel_attributes>last::Demo
 --
@@ -32,6 +32,7 @@
 +addDVDScene(): Scene
 +DeleteScene(): Scene
 +SearchScene(): Scene
++SearchMScene(): Scene
 +main(String[] args): void
 --
 </panel_attributes>
@@ -40,10 +41,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>740</x>
-      <y>10</y>
-      <w>580</w>
-      <h>230</h>
+      <x>468</x>
+      <y>333</y>
+      <w>432</w>
+      <h>234</h>
     </coordinates>
     <panel_attributes>last::Customer
 --
@@ -57,7 +58,7 @@
 +borrowByTitle(String title): String
 +ReturnByTitle(String title): String
 +ReturnByIndex(int n): String
-+SearchByTitle(String title): String
++SearchSth(String title): String
 +SearchSelf(): String
 +getName(): String
 --
@@ -67,10 +68,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>810</x>
-      <y>280</y>
-      <w>410</w>
-      <h>200</h>
+      <x>927</x>
+      <y>297</y>
+      <w>351</w>
+      <h>207</h>
     </coordinates>
     <panel_attributes>last::Item
 --
@@ -92,10 +93,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>100</x>
-      <y>400</y>
-      <w>330</w>
-      <h>130</h>
+      <x>153</x>
+      <y>252</y>
+      <w>270</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>last::Manager
 --
@@ -106,6 +107,7 @@
 +deleteByIndex(int n): String
 +deleteByTitle(String title): String
 +getPassword(): String
++SearchSth(String title): String
 --
 </panel_attributes>
     <additional_attributes/>
@@ -113,29 +115,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>880</x>
-      <y>570</y>
-      <w>480</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes>last::DVD
---
--director: String
---
-+DVD(String title, String playingTime, String director, String comment): ctor
-+toString(): String
-+print(): String
---
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>390</x>
-      <y>550</y>
-      <w>470</w>
-      <h>100</h>
+      <x>495</x>
+      <y>675</y>
+      <w>414</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>last::CD
 --
@@ -149,25 +132,83 @@
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
+    <id>UMLClass</id>
     <coordinates>
-      <x>710</x>
-      <y>470</y>
-      <w>140</w>
-      <h>100</h>
+      <x>486</x>
+      <y>81</y>
+      <w>171</w>
+      <h>81</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>120.0;10.0;10.0;80.0</additional_attributes>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+last::Seach
+--
+--
+~SearchSth(String s): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>927</x>
+      <y>693</y>
+      <w>432</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>last::DVD
+--
+-director: String
+--
++DVD(String title, String playingTime, String director, String comment): ctor
++toString(): String
++print(): String
+--
+</panel_attributes>
+    <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1030</x>
-      <y>470</y>
-      <w>110</w>
-      <h>120</h>
+      <x>792</x>
+      <y>495</y>
+      <w>234</w>
+      <h>198</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>90.0;10.0;10.0;100.0</additional_attributes>
+    <additional_attributes>240.0;10.0;10.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1152</x>
+      <y>495</y>
+      <w>72</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>369</x>
+      <y>144</y>
+      <w>135</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>603</x>
+      <y>153</y>
+      <w>144</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;200.0</additional_attributes>
   </element>
 </diagram>

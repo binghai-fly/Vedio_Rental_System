@@ -156,6 +156,7 @@ public class Demo extends Application {
         Button deleteBtn = new Button("Delete");
         Button backBtn = new Button("Back");
         Button showDeBtn =new Button("Detailed Show");
+        Button searchBtn=new Button("Search");
         
         // 2. 创建结果显示区
         TextArea resArea = new TextArea();
@@ -189,8 +190,14 @@ public class Demo extends Application {
         deleteBtn.setOnAction(e->{
         	primaryStage.setScene(DeleteScene());
         });
+        
+        searchBtn.setOnAction(e->{
+        	primaryStage.setScene(SearchMScene());
+        	
+        });
+        
         // 4. 布局
-        VBox buttonBox = new VBox(10, showBtn, showDeBtn,addBtn, deleteBtn, backBtn);
+        VBox buttonBox = new VBox(10, showBtn, showDeBtn,searchBtn,addBtn, deleteBtn, backBtn);
         VBox root = new VBox(20, buttonBox, resArea);
         root.setStyle("-fx-padding: 20;");
 
@@ -484,7 +491,7 @@ public class Demo extends Application {
 		
 		searchBtn.setOnAction(e->{
 			resArea.clear();
-			resArea.appendText(customer.SearchByTitle(tf.getText()));
+			resArea.appendText(customer.SearchSth(tf.getText()));
 		});
 		 backBtn.setOnAction(e -> {
 	            primaryStage.setScene(CustomerScene());
@@ -497,6 +504,32 @@ public class Demo extends Application {
 
         return new Scene(root, 600, 500);
 	}
+	
+	public Scene SearchMScene() {
+		resArea.clear();
+		TextField tf=new TextField();
+		tf.setPromptText("name");
+		Label label =new Label("name:");
+		
+		Button searchBtn = new Button("Search");
+		Button backBtn = new Button("Back");
+		
+		searchBtn.setOnAction(e->{
+			resArea.clear();
+			resArea.appendText(manager.SearchSth(tf.getText()));
+		});
+		 backBtn.setOnAction(e -> {
+	            primaryStage.setScene(ManagerScene());
+	        });
+
+		
+		VBox buttonBox = new VBox(10,label ,tf,searchBtn, backBtn);
+        VBox root = new VBox(20, buttonBox, resArea);
+        root.setStyle("-fx-padding: 20;");
+
+        return new Scene(root, 600, 500);
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		launch(args);
